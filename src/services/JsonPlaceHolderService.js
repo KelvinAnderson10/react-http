@@ -1,23 +1,22 @@
-export const jsonPlaceHolderService = ({doPost, doGet}) => {
+export const jsonPlaceHolderService = ({doGet, doPost}) => {
 
     const getPostById = async (id) => {
         try {
-            return await doGet({url: '/'+ id});
+            return await doGet({url: '/posts/'+ id});
+
         } catch (error) {
             throw error
         }
     }
-    const createPost = async (title, body) => {
+    const createPost = async (newPost) => {
         try {
             return await doPost({
-                url: '/', data: {
-                    title, body
-                }
+                url: '/posts', data: newPost
             })
         } catch (error) {
             throw error
         }
     }
     
-    return getPostById, createPost
+    return { getPostById, createPost}
 }

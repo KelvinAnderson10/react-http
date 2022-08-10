@@ -18,5 +18,5 @@ export const apiClientFactory = (client) => {
         }
     }
 
-    return {doPost, doGet}
+    return {doGet, doPost}
 }
